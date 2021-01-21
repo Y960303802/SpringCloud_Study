@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xizi.dao.EmpDao">
+    <insert id="save" parameterType="com.xizi.entity.Emp" useGeneratedKeys="true" keyProperty="id">
+        insert into t_emp  values (#{id},#{name},#{path},#{salary},#{age})
+    </insert>
+
+    <update id="update" parameterType="com.xizi.entity.Emp">
+        update t_emp set name=#{name},path=#{path},salary=#{salary},age=#{age}
+    </update>
+
+    <delete id="delete" parameterType="Int">
+        delete from t_emp where id=#{id}
+    </delete>
+
+    <select id="findAll" resultType="com.xizi.entity.Emp">
+        select id ,name ,path ,salary ,age from t_emp
+    </select>
+
+
+</mapper>
